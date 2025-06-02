@@ -83,22 +83,14 @@ function Contact() {
         <ContactItem>
           <ContactIcon src={PhoneIcon} alt="Phone" />
           <ContactLabel>Phone & Mobile</ContactLabel>
-          <ContactDetails>
-            123-456-7890
-            <br />
-            +123-456-7890
-          </ContactDetails>
+          <ContactDetails>+91-8248038470</ContactDetails>
         </ContactItem>
 
         {/* Email & Website */}
         <ContactItem>
           <ContactIcon src={EmailIcon} alt="Email" />
-          <ContactLabel>Email & Website</ContactLabel>
-          <ContactDetails>
-            hello@reallygreatsite.com
-            <br />
-            reallygreatsite.com
-          </ContactDetails>
+          <ContactLabel>Email</ContactLabel>
+          <ContactDetails>susobhanlal2017@gmail.com</ContactDetails>
         </ContactItem>
 
         {/* Address */}
@@ -106,17 +98,19 @@ function Contact() {
           <ContactIcon src={LocationIcon} alt="Address" />
           <ContactLabel>Address</ContactLabel>
           <ContactDetails>
-            123 Anywhere St., Any City, ST
+            Pairashi Chaipat, PAschim Medinipur,
             <br />
-            12345
+            721148
           </ContactDetails>
         </ContactItem>
 
         {/* Social Media */}
         <ContactItem>
           <ContactIcon src={SocialMediaIcon} alt="Social Media" />
-          <ContactLabel>Social Media</ContactLabel>
-          <ContactDetails>@reallygreatsite</ContactDetails>
+          <ContactLabel>linkedin</ContactLabel>
+          <ContactDetails>
+            www.linkedin.com/in/susobhan-lal-5bb60b35b
+          </ContactDetails>
         </ContactItem>
       </ContactGrid>
 
@@ -135,8 +129,8 @@ function Contact() {
 
       {/* Footer */}
       <FooterSection>
-        <div className="name">Alexander Aronowitz</div>
-        <div className="year">Portfolio 2023</div>
+        <div className="name">Susobhan LAl</div>
+        <div className="year">Portfolio 2025</div>
       </FooterSection>
     </ContactContainer>
   );

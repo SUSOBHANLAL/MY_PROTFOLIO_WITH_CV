@@ -62,23 +62,30 @@ function Education() {
         <SectionTitle>Education</SectionTitle>
         <Underline />
         <Description>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit
-          amet massa sed leo molestie ultrices in non mi. Suspendisse mollis
-          nisl ac aliquet pretium. Suspendisse dignissim, odio non hendrerit
-          suscipit, lorem ipsum tempus tortor, suscipit vestibulum velit quam
-          nec nibh.
+          A passionate <strong>Full Stack Engineer</strong> with hands-on
+          experience in building{" "}
+          <span className="highlight">scalable web & mobile applications</span>.
+          I specialize in{" "}
+          <span className="highlight">Java, JavaScript, Node.js, Python,</span>{" "}
+          and cloud platforms like <span className="highlight">AWS</span>. My
+          expertise lies in developing{" "}
+          <span className="highlight">real-time systems</span>, implementing{" "}
+          <span className="highlight">geospatial algorithms</span>, and crafting{" "}
+          <span className="highlight">user-centric solutions</span>. I thrive on
+          solving complex problems, collaborating with teams, and delivering
+          high-performance, impactful software products.
         </Description>
       </div>
 
       {/* Timeline */}
       <Timeline>
-        <div className="years">2012 - 2019</div>
+        <div className="years">2019 - 2023</div>
         <div className="details">
           <Institution>Chaipat High School</Institution>
           <Degree>Science | 2019</Degree>
           <br />
-          <Institution>Bachelor Degree</Institution>
-          <Degree>VTU | BE | 2023</Degree>
+          <Institution>Bachelor of Engineering</Institution>
+          <Degree>Visvesvaraya Technological University | BE |2019-2023</Degree>
           <br />
           {/* <Institution>Master Degree</Institution>
           <Degree>

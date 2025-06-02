@@ -101,11 +101,18 @@ function AboutMe() {
         <Underline />
 
         <Description>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit
-          amet massa sed leo molestie ultrices in non mi. Suspendisse mollis
-          nisl ac aliquet pretium. Suspendisse dignissim, odio non hendrerit
-          suscipit, lorem ipsum tempus tortor, suscipit vestibulum velit quam
-          nec nibh.
+          A passionate <strong>Full Stack Engineer</strong> with hands-on
+          experience in building{" "}
+          <span className="highlight">scalable web & mobile applications</span>.
+          I specialize in{" "}
+          <span className="highlight">Java, JavaScript, Node.js, Python,</span>{" "}
+          and cloud platforms like <span className="highlight">AWS</span>. My
+          expertise lies in developing{" "}
+          <span className="highlight">real-time systems</span>, implementing{" "}
+          <span className="highlight">geospatial algorithms</span>, and crafting{" "}
+          <span className="highlight">user-centric solutions</span>. I thrive on
+          solving complex problems, collaborating with teams, and delivering
+          high-performance, impactful software products.
         </Description>
 
         <Description>
@@ -117,11 +124,32 @@ function AboutMe() {
         <SkillInterestSection>
           <h3>Skill & Interest</h3>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
-            <SkillButton>Social Media</SkillButton>
-            <SkillButton>Design</SkillButton>
-            <SkillButton>Reading</SkillButton>
-            <SkillButton>Data Analyst</SkillButton>
-            <SkillButton>Photography</SkillButton>
+            <SkillButton>
+              <strong>Programming Languages:</strong> Java, JavaScript, Python
+            </SkillButton>
+            <SkillButton>
+              {" "}
+              <strong>Programming Languages:</strong> Java, JavaScript, Python
+            </SkillButton>
+            <SkillButton>
+              {" "}
+              <strong>Frameworks & Libraries:</strong> Spring Boot, Node.js,
+              Express.js, Socket.IO, Jmix
+            </SkillButton>
+            <SkillButton>
+              {" "}
+              <strong>Databases :</strong> MySQL, MongoDB, MS SQL Server
+            </SkillButton>
+            <SkillButton>
+              {" "}
+              <strong>Tools & Platforms:</strong> Git, AWS (EC2, RDS, S3, ELB),
+              RESTful APIs
+            </SkillButton>
+            <SkillButton>
+              {" "}
+              <strong>Other Technologies:</strong> HTML/CSS, OpenStreetMap
+              (OSM), Tesseract OCR, VBA
+            </SkillButton>
           </div>
         </SkillInterestSection>
       </BiographyWrapper>

@@ -332,8 +332,22 @@ import styled from "styled-components";
 import { Link } from "react-router-dom"; // Import Link for navigation
 // Import the profile image from assets
 import profileImage from "../assets/profile-removebg-preview.png"; // Replace with your actual image URL
+import backgroundImage from "../assets/backgroundImage.png"; // Replace with your actual background image URL
 
 // Styled Components
+// const HeaderContainer = styled.header`
+//   position: relative;
+//   height: 100vh;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: space-between;
+//   padding: 0 20px;
+//   overflow: hidden;
+//   background-image: backgroundImage;
+
+// `;
+
 const HeaderContainer = styled.header`
   position: relative;
   height: 100vh;
@@ -343,7 +357,11 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   padding: 0 20px;
   overflow: hidden;
-  background: linear-gradient(90deg, #8e2de2, #4a00e0, #07f3ff);
+
+  background-image: url(${backgroundImage});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 `;
 
 // Additional Components for Creative Design
@@ -547,10 +565,10 @@ const Description = styled.p`
 const ProfileImage = styled.img`
   width: 300px;
   position: absolute;
-  top: -45%;
-  right: 3%;
+  top: -50%;
+  right: 4%;
   object-fit: cover;
-  border-radius: 2000px;
+  border-radius: 1000px;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
 
   @media (max-width: 768px) {
@@ -663,22 +681,10 @@ function Header() {
           <Name>I'm Susobhan Lal</Name>
           <Subtitle>Software Developer</Subtitle>
           <Description>
-            A passionate <strong>Full Stack Engineer</strong> with hands-on
-            experience in building{" "}
-            <span className="highlight">
-              scalable web & mobile applications
-            </span>
-            . I specialize in{" "}
-            <span className="highlight">
-              Java, JavaScript, Node.js, Python,
-            </span>{" "}
-            and cloud platforms like <span className="highlight">AWS</span>. My
-            expertise lies in developing{" "}
-            <span className="highlight">real-time systems</span>, implementing{" "}
-            <span className="highlight">geospatial algorithms</span>, and
-            crafting <span className="highlight">user-centric solutions</span>.
-            I thrive on solving complex problems, collaborating with teams, and
-            delivering high-performance, impactful software products.
+            A passionate Full Stack Engineer skilled in Java, JavaScript,
+            Node.js, Python, and AWS. Builds scalable web/mobile apps, real-time
+            systems, and geospatial solutions. Focused on user-centric design,
+            problem-solving, and high-performance software delivery.
           </Description>
         </TextContent>
         {/* Profile Image */}

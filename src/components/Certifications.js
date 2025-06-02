@@ -30,10 +30,10 @@ function Certifications() {
     <CertificationsContainer>
       <SectionTitle>Certifications</SectionTitle>
       <List>
-        <Item>AWS Certified Developer – Associate</Item>
-        <Item>Google Cloud Fundamentals</Item>
-        <Item>React Frontend Certification – Meta</Item>
-        <Item>Full Stack Development – Coursera</Item>
+        <Item> Data Structures & Algorithms (DSA) – Coding Ninjas</Item>
+        <Item>Java Programming - Coding Ninjas</Item>
+        <Item>Node.js – Coding Ninjas</Item>
+        <Item> React.js – Coding Ninjas</Item>
       </List>
     </CertificationsContainer>
   );
