@@ -81,3 +81,5 @@ src/
 ├── styles/
 │ └── GlobalStyle.js
 └── index.js
+
+Deployed on https://my-protfolio-with-cv.vercel.app/
