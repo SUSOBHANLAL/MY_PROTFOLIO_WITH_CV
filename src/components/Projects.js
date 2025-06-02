@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 // Import project images from assets
-import project1 from "../assets/Tutem.png"; // Replace with your actual image path
-import project2 from "../assets/project2.jpg"; // Replace with your actual image path
-import project3 from "../assets/project3.jpg"; // Replace with your actual image path
+import project1 from "../assets/project1.png"; // Replace with your actual image path
+import project2 from "../assets/project2.png"; // Replace with your actual image path
+import project3 from "../assets/project3.png"; // Replace with your actual image path
 
 const ProjectsContainer = styled.div`
   padding: 50px 20px;
@@ -77,7 +77,7 @@ function Projects() {
     <ProjectsContainer>
       {/* Title */}
       <div>
-        <SectionTitle>Selected Projects</SectionTitle>
+        <SectionTitle>PROJECT EXPERIENCE</SectionTitle>
         <Underline />
       </div>
 
