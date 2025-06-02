@@ -1,11 +1,11 @@
-// import React from "react";
+// import React, { useState } from "react";
 // import styled from "styled-components";
 // import { Link } from "react-router-dom"; // Import Link for navigation
-
 // // Import the profile image from assets
 // import profileImage from "../assets/profile-removebg-preview.png"; // Replace with your actual image URL
-// import backgroundImage from "../assets/profile-removebg-preview.png";
+// import backgroundImage from "../assets/15d46587-875f-4c81-85d9-80cfab1e5576.png"; // Replace with your actual background image URL
 
+// // Styled Components
 // const HeaderContainer = styled.header`
 //   position: relative;
 //   height: 100vh;
@@ -18,7 +18,40 @@
 //   background: linear-gradient(90deg, #8e2de2, #4a00e0, #07f3ff);
 // `;
 
-// // Glassmorphic Navbar Wrapper
+// // Additional Components for Creative Design
+// const LogoIcon = styled.span`
+//   display: inline-block;
+//   width: 20px;
+//   height: 20px;
+//   background-color: #00c6ff;
+//   border-radius: 50%;
+//   margin-right: 5px;
+// `;
+
+// const GlobalLink = styled.a`
+//   display: flex;
+//   align-items: center;
+//   color: white;
+//   text-decoration: none;
+//   font-size: 1rem;
+//   margin-top: 20px;
+// `;
+
+// const ArrowButton = styled.button`
+//   position: absolute;
+//   bottom: 10%;
+//   left: 60%;
+//   transform: translateX(-50%);
+//   background: #ffcc00;
+//   color: white;
+//   border: none;
+//   padding: 10px 20px;
+//   border-radius: 50px;
+//   font-size: 1rem;
+//   cursor: pointer;
+//   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+// `;
+
 // const NavbarWrapper = styled.div`
 //   width: 70%;
 //   max-width: 900px;
@@ -53,6 +86,42 @@
 //     list-style: none;
 //     display: flex;
 //     gap: 20px;
+//     transition: all 0.3s ease;
+
+//     @media (max-width: 768px) {
+//       flex-direction: column;
+//       position: absolute;
+//       top: 100%;
+//       left: 0;
+//       background: rgba(255, 255, 255, 0.1);
+//       padding: 20px;
+//       transform: ${({ isOpen }) =>
+//         isOpen ? "translateY(0)" : "translateY(-100%)"};
+//       transition: transform 0.3s ease;
+//       width: 100%;
+//       z-index: 1000;
+//     }
+//   }
+
+//   ul {
+//     list-style: none;
+//     display: flex;
+//     gap: 20px;
+//     transition: all 0.3s ease;
+
+//     @media (max-width: 768px) {
+//       flex-direction: column;
+//       position: absolute;
+//       top: 100%;
+//       left: 0;
+//       background: rgba(255, 255, 255, 0.1);
+//       padding: 20px;
+//       transform: ${(props) =>
+//         props.isOpen ? "translateY(0)" : "translateY(-100%)"};
+//       transition: transform 0.3s ease;
+//       width: 100%;
+//       z-index: 1000;
+//     }
 //   }
 
 //   li {
@@ -61,6 +130,11 @@
 //     color: white;
 //     transition: color 0.3s ease;
 //     cursor: pointer;
+
+//     @media (max-width: 768px) {
+//       width: 100%;
+//       text-align: center;
+//     }
 //   }
 
 //   li:hover {
@@ -74,11 +148,13 @@
 //   align-items: center;
 //   width: 100%;
 //   max-width: 1200px;
+//   position: relative;
 // `;
 
 // const TextContent = styled.div`
 //   max-width: 50%;
 //   color: white;
+//   z-index: 1; /* Ensure text is above other elements */
 // `;
 
 // const Greeting = styled.h3`
@@ -103,6 +179,7 @@
 //   color: white;
 //   padding: 5px 10px;
 //   border-radius: 5px;
+//   text-align: center;
 // `;
 
 // const Description = styled.p`
@@ -111,12 +188,40 @@
 //   color: #aaa;
 // `;
 
+// // const ProfileImage = styled.img`
+// //   width: 300px;
+// //   height: auto;
+// //   object-fit: cover;
+// //   border-radius: 10px;
+// //   box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+// //   position: absolute;
+// //   top: 50%;
+// //   right: 0;
+// //   transform: translateY(-50%);
+// //   clip-path: polygon(0 0, 100% 0%, 100% 80%, 0% 100%); /* Asymmetrical shape */
+// // `;
+
 // const ProfileImage = styled.img`
 //   width: 300px;
 //   height: auto;
 //   object-fit: cover;
 //   border-radius: 10px;
 //   box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+
+//   /* Media Query for Mobile */
+//   @media (max-width: 768px) {
+//     width: 200px; /* Smaller width for mobile */
+//     position: absolute;
+//     top: 5%;
+//     right: 3%; /* Adjusted to avoid overlapping with text */
+//     transform: translateY(-50%);
+//     clip-path: polygon(
+//       0 0,
+//       100% 0%,
+//       100% 100%,
+//       0% 150%
+//     ); /* Asymmetrical shape */
+//   }
 // `;
 
 // const HorizontalLine = styled.div`
@@ -128,80 +233,92 @@
 //   background: linear-gradient(to right, transparent, #fff, transparent);
 // `;
 
+// const HamburgerIcon = styled.span`
+//   display: none;
+
+//   @media (max-width: 768px) {
+//     display: block;
+//     font-size: 24px;
+//     cursor: pointer;
+//     color: white;
+//   }
+// `;
+
+// // Function Component
 // function Header() {
+//   const [isOpen, setIsOpen] = useState(false); // State to track if the menu is open
+
+//   const toggleMenu = () => {
+//     setIsOpen(!isOpen); // Toggle the menu state
+//   };
+
 //   return (
 //     <HeaderContainer>
 //       {/* Transparent Navbar with Shadow */}
-
 //       <Navbar>
 //         <div className="logo">Online Portfolio</div>
-//         <ul>
+//         <HamburgerIcon onClick={toggleMenu}>
+//           &#9776; {/* Hamburger icon */}
+//         </HamburgerIcon>
+//         <ul
+//           style={{ transform: isOpen ? "translateY(0)" : "translateY(-100%)" }}
+//         >
 //           <li>
-//             <NavbarWrapper>
-//               <Link to="/">Home</Link>
-//             </NavbarWrapper>
+//             <Link to="/">Home</Link>
 //           </li>
 //           <li>
-//             <NavbarWrapper>
-//               <Link to="/about">About Me</Link>
-//             </NavbarWrapper>
+//             <Link to="/about">About</Link>
 //           </li>
 //           <li>
-//             <NavbarWrapper>
-//               <Link to="/education">Education</Link>
-//             </NavbarWrapper>
+//             <Link to="/education">Education</Link>
 //           </li>
 //           <li>
-//             <NavbarWrapper>
-//               <Link to="/experience">Experience</Link>
-//             </NavbarWrapper>
+//             <Link to="/experience">Experience</Link>
 //           </li>
 //           <li>
-//             <NavbarWrapper>
-//               {" "}
-//               <Link to="/skills">Skills</Link>
-//             </NavbarWrapper>
+//             <Link to="/skills">Skills</Link>
 //           </li>
 //           <li>
-//             <NavbarWrapper>
-//               {" "}
-//               <Link to="/projects">Projects</Link>
-//             </NavbarWrapper>
+//             <Link to="/projects">Projects</Link>
 //           </li>
 //           <li>
-//             <NavbarWrapper>
-//               {" "}
-//               <Link to="/certifications">Certifications</Link>
-//             </NavbarWrapper>
+//             <Link to="/certifications">Certifications</Link>
 //           </li>
 //           <li>
-//             <NavbarWrapper>
-//               <Link to="/contact">Contact</Link>
-//             </NavbarWrapper>
+//             <Link to="/contact">Contact</Link>
 //           </li>
 //         </ul>
 //       </Navbar>
-
 //       {/* Main Content Section */}
 //       <ContentWrapper>
 //         <TextContent>
 //           <Greeting>Hello !!!</Greeting>
-//           <Name>I'm Alexander Aronowitz</Name>
-//           <Subtitle>Professional Content Creator</Subtitle>
-
+//           <Name>I'm Susobhan Lal</Name>
+//           <Subtitle>Software Developer</Subtitle>
 //           <Description>
-//             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit
-//             amet massa sed leo molestie ultrices in non mi. Suspendisse mollis
-//             nisl ac aliquet pretium. Suspendisse dignissim, odio non hendrerit
-//             suscipit, lorem ipsum tempus tortor, suscipit vestibulum velit quam
-//             nec nibh.
+//             Full Stack Engineer with experience building scalable web and mobile
+//             apps. Skilled in Java, JavaScript, Node.js, Python, and AWS.
+//             Expertise in real-time systems, geospatial algorithms, and
+//             user-centric solutions. Strong problem-solver with a passion for
+//             innovation, collaboration, and delivering high-impact software.
 //           </Description>
 //         </TextContent>
-
 //         {/* Profile Image */}
 //         <ProfileImage src={profileImage} alt="Profile" />
+//         {/* Global Link */}
+//         <GlobalLink href="https://www.example.com">
+//           <LogoIcon />
+//           Susobhan
+//         </GlobalLink>
+//         {/* Arrow Button */}
+//         <ArrowButton
+//           href="https://my-cv-pi-black.vercel.app/"
+//           target="_blank"
+//           rel="noopener noreferrer"
+//         >
+//           Explore →
+//         </ArrowButton>
 //       </ContentWrapper>
-
 //       {/* Horizontal Line */}
 //       <HorizontalLine />
 //     </HeaderContainer>
@@ -210,14 +327,13 @@
 
 // export default Header;
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom"; // Import Link for navigation
-
 // Import the profile image from assets
 import profileImage from "../assets/profile-removebg-preview.png"; // Replace with your actual image URL
-import backgroundImage from "../assets/15d46587-875f-4c81-85d9-80cfab1e5576.png"; // Replace with your actual background image URL
 
+// Styled Components
 const HeaderContainer = styled.header`
   position: relative;
   height: 100vh;
@@ -227,27 +343,69 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   padding: 0 20px;
   overflow: hidden;
-
-  /* Background Image */
   background: linear-gradient(90deg, #8e2de2, #4a00e0, #07f3ff);
-  //   background: url(${backgroundImage}) no-repeat center center;
-  background-size: cover;
-  background-position: center;
 `;
 
-// Glassmorphic Navbar Wrapper
-// const NavbarWrapper = styled.div`
-//   width: 70%;
-//   max-width: 900px;
-//   margin: 0 auto;
-//   padding: 10px 20px;
-//   background: rgba(255, 255, 255, 0.1); /* Transparent background */
-//   border-radius: 30px;
-//   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-//   backdrop-filter: blur(10px); /* Glassmorphism effect */
-//   -webkit-backdrop-filter: blur(10px);
-//   transition: all 0.3s ease-in-out;
-// `;
+// Additional Components for Creative Design
+const LogoIcon = styled.span`
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(90deg, #8e2de2, #4a00e0, #07f3ff);
+
+  border-radius: 50%;
+  margin-right: 5px;
+`;
+
+const SideLogoIcon = styled.div`
+  position: fixed; /* or 'absolute' depending on layout */
+  top: 17%;
+  right: 2%;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(90deg, #8e2de2, #4a00e0, #07f3ff);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+
+  /* Optional: Add animation or hover effect */
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: rotate(15deg);
+  }
+`;
+
+const GlobalLink = styled.a`
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-top: 20px;
+`;
+
+const ArrowButton = styled.button`
+  position: absolute;
+  bottom: 10%;
+  left: 60%;
+  transform: translateX(-50%);
+  background: #ffcc00;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+`;
+
 const NavbarWrapper = styled.div`
   width: 70%;
   max-width: 900px;
@@ -282,6 +440,21 @@ const Navbar = styled.nav`
     list-style: none;
     display: flex;
     gap: 20px;
+    transition: all 0.3s ease;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      transform: ${(props) =>
+        props.isOpen ? "translateY(0)" : "translateY(-100%)"};
+      transition: transform 0.3s ease;
+      width: 100%;
+      z-index: 1000;
+    }
   }
 
   li {
@@ -290,6 +463,11 @@ const Navbar = styled.nav`
     color: white;
     transition: color 0.3s ease;
     cursor: pointer;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      text-align: center;
+    }
   }
 
   li:hover {
@@ -337,23 +515,52 @@ const Subtitle = styled.p`
   text-align: center;
 `;
 
+// const Description = styled.p`
+//   font-size: 1rem;
+//   line-height: 1.6;
+//   color: #aaa;
+// `;
+
 const Description = styled.p`
   font-size: 1rem;
-  line-height: 1.6;
-  color: #aaa;
+  line-height: 1.8;
+  color: #ddd;
+  max-width: 600px;
+  margin-bottom: 25px;
+
+  strong {
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  span.highlight {
+    color: rgb(16, 168, 148);
+    font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
 `;
 
 const ProfileImage = styled.img`
   width: 300px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
   position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  clip-path: polygon(0 0, 100% 0%, 100% 80%, 0% 100%); /* Asymmetrical shape */
+  top: -45%;
+  right: 3%;
+  object-fit: cover;
+  border-radius: 2000px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+
+  @media (max-width: 768px) {
+    width: 200px;
+    position: absolute;
+    top: 8%;
+    right: 3%;
+    transform: translateY(-50%);
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 150%);
+  }
 `;
 
 const HorizontalLine = styled.div`
@@ -365,141 +572,87 @@ const HorizontalLine = styled.div`
   background: linear-gradient(to right, transparent, #fff, transparent);
 `;
 
-// Additional Components for Creative Design
-const LogoIcon = styled.span`
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background-color: #00c6ff;
-  border-radius: 50%;
-  margin-right: 5px;
+const HamburgerIcon = styled.span`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+  }
 `;
 
-const GlobalLink = styled.a`
-  display: flex;
-  align-items: center;
-  color: white;
-  text-decoration: none;
-  font-size: 1rem;
-  margin-top: 20px;
-`;
-
-const ArrowButton = styled.button`
-  position: absolute;
-  bottom: 10%;
-  left: 60%;
-  transform: translateX(-50%);
-  background: #ffcc00;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 50px;
-  font-size: 1rem;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-`;
-
-// Asymmetrical Shapes
-const Shape1 = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle at 50% 50%, #000000, transparent 60%);
-  border-radius: 50%;
-  opacity: 0.8;
-  z-index: 1;
-`;
-
-const Shape2 = styled.div`
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle at 50% 50%, #000000, transparent 60%);
-  border-radius: 50%;
-  opacity: 0.8;
-  z-index: 1;
-`;
-
-const YearText = styled.div`
-  position: absolute;
-  top: 10%;
-  left: 5%;
-  font-size: 1rem;
-  font-weight: bold;
-  color: white;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-  z-index: 2;
-`;
-
+// Function Component
 function Header() {
+  const [isOpen, setIsOpen] = useState(false); // State to track if the menu is open
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen); // Toggle the menu state
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isOpen && !event.target.closest("nav")) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener("click", handleClickOutside);
+    return () => window.removeEventListener("click", handleClickOutside);
+  }, [isOpen]);
+
   return (
     <HeaderContainer>
-      {/* Asymmetrical Shapes */}
-      <Shape1 />
-      <Shape2 />
-
-      {/* Year Text */}
-      <YearText>2025</YearText>
-
       {/* Transparent Navbar with Shadow */}
-
-      <Navbar>
+      <Navbar isOpen={isOpen}>
         <div className="logo">Online Portfolio</div>
-        <ul>
-          <NavbarWrapper>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-          </NavbarWrapper>
-
-          <NavbarWrapper>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-          </NavbarWrapper>
-
-          <NavbarWrapper>
-            {" "}
-            <li>
-              <Link to="/education">Education</Link>
-            </li>
-          </NavbarWrapper>
-
-          <NavbarWrapper>
-            <li>
-              <Link to="/experience">Experience</Link>
-            </li>
-          </NavbarWrapper>
-
-          <NavbarWrapper>
-            <li>
-              <Link to="/skills">Skills</Link>
-            </li>
-          </NavbarWrapper>
-
-          <NavbarWrapper>
-            {" "}
-            <li>
-              <Link to="/projects">Projects</Link>
-            </li>
-          </NavbarWrapper>
-
-          <NavbarWrapper>
-            {" "}
-            <li>
-              <Link to="/certifications">Certifications</Link>
-            </li>
-          </NavbarWrapper>
-
-          <NavbarWrapper>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-          </NavbarWrapper>
+        <HamburgerIcon onClick={toggleMenu}>&#9776;</HamburgerIcon>
+        <ul isOpen={isOpen}>
+          <li>
+            <Link to="/" onClick={closeMenu}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" onClick={closeMenu}>
+              About
+            </Link>
+          </li>
+          <li>
+            <Link to="/education" onClick={closeMenu}>
+              Education
+            </Link>
+          </li>
+          <li>
+            <Link to="/experience" onClick={closeMenu}>
+              Experience
+            </Link>
+          </li>
+          <li>
+            <Link to="/skills" onClick={closeMenu}>
+              Skills
+            </Link>
+          </li>
+          <li>
+            <Link to="/projects" onClick={closeMenu}>
+              Projects
+            </Link>
+          </li>
+          <li>
+            <Link to="/certifications" onClick={closeMenu}>
+              Certifications
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact" onClick={closeMenu}>
+              Contact
+            </Link>
+          </li>
         </ul>
       </Navbar>
 
@@ -509,36 +662,42 @@ function Header() {
           <Greeting>Hello !!!</Greeting>
           <Name>I'm Susobhan Lal</Name>
           <Subtitle>Software Developer</Subtitle>
-
           <Description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit
-            amet massa sed leo molestie ultrices in non mi. Suspendisse mollis
-            nisl ac aliquet pretium. Suspendisse dignissim, odio non hendrerit
-            suscipit, lorem ipsum tempus tortor, suscipit vestibulum velit quam
-            nec nibh.
+            A passionate <strong>Full Stack Engineer</strong> with hands-on
+            experience in building{" "}
+            <span className="highlight">
+              scalable web & mobile applications
+            </span>
+            . I specialize in{" "}
+            <span className="highlight">
+              Java, JavaScript, Node.js, Python,
+            </span>{" "}
+            and cloud platforms like <span className="highlight">AWS</span>. My
+            expertise lies in developing{" "}
+            <span className="highlight">real-time systems</span>, implementing{" "}
+            <span className="highlight">geospatial algorithms</span>, and
+            crafting <span className="highlight">user-centric solutions</span>.
+            I thrive on solving complex problems, collaborating with teams, and
+            delivering high-performance, impactful software products.
           </Description>
         </TextContent>
-
         {/* Profile Image */}
         <ProfileImage src={profileImage} alt="Profile" />
-
+        {/* <SideLogoIcon /> */}
         {/* Global Link */}
-        <GlobalLink href="https://www.example.com">
+        <GlobalLink href="https://my-cv-pi-black.vercel.app/">
           <LogoIcon />
-          Daniel Gallego
+          Resume
         </GlobalLink>
-
         {/* Arrow Button */}
-        {/* <ArrowButton>Explore →</ArrowButton> */}
         <ArrowButton
           href="https://my-cv-pi-black.vercel.app/"
-          target="https://my-cv-pi-black.vercel.app/"
-          rel="noopener noreferrer"
+          // target="_blank"
+          // rel="noopener noreferrer"
         >
           Explore →
         </ArrowButton>
       </ContentWrapper>
-
       {/* Horizontal Line */}
       <HorizontalLine />
     </HeaderContainer>
