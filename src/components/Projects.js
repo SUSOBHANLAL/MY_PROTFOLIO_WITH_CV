@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 // Import project images from assets
-import project1 from "../assets/project1.jpg"; // Replace with your actual image path
+import project1 from "../assets/Tutem.png"; // Replace with your actual image path
 import project2 from "../assets/project2.jpg"; // Replace with your actual image path
 import project3 from "../assets/project3.jpg"; // Replace with your actual image path
 
@@ -92,10 +92,16 @@ function Projects() {
         <ProjectCard>
           <ProjectImage src={project1} alt="Project 1" />
           <ProjectDetails>
-            <ProjectName>Arrowai Industries | 2022</ProjectName>
+            <ProjectName>
+              Login and Registration System | Oct 2024 – Nov 2024
+            </ProjectName>
             <ProjectDescription>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit
-              amet massa sed leo molestie ultrices in non mi.
+              Developed a user authentication system using Node.js, Express, and
+              MongoDB with secure login and registration. Implemented email
+              verification by sending an authentication token to Gmail and
+              hashed passwords using bcrypt. Integrated JWT for session
+              management and designed RESTful APIs to ensure secure
+              authentication.
             </ProjectDescription>
           </ProjectDetails>
         </ProjectCard>
@@ -104,10 +110,16 @@ function Projects() {
         <ProjectCard>
           <ProjectImage src={project2} alt="Project 2" />
           <ProjectDetails>
-            <ProjectName>Borcelle | 2023</ProjectName>
+            <ProjectName>
+              Pooling Workforce Tracker | Nov 2024 – Dec 2024
+            </ProjectName>
             <ProjectDescription>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit
-              amet massa sed leo molestie ultrices in non mi.
+              Developed a full-stack web application to manage and visualize
+              voting results using Node.js, MongoDB, and React.js. Designed a
+              professional, responsive UI with integrated Chart.js for dynamic
+              bar and pie charts. Implemented REST APIs to handle vote
+              submissions, prevent duplicate votes, and calculate election
+              statistics.
             </ProjectDescription>
           </ProjectDetails>
         </ProjectCard>
@@ -116,10 +128,14 @@ function Projects() {
         <ProjectCard>
           <ProjectImage src={project3} alt="Project 3" />
           <ProjectDetails>
-            <ProjectName>Fradel and Spies | 2023</ProjectName>
+            <ProjectName>
+              Food Delivery Application | Jan 2024 – Feb 2024
+            </ProjectName>
             <ProjectDescription>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit
-              amet massa sed leo molestie ultrices in non mi.
+              Designed and developed a responsive React.js frontend and
+              Node.js/Express backend. Implemented key features such as food
+              browsing, cart management, order placement, and user reviews.
+              Integrated RESTful APIs for seamless client-server communication.
             </ProjectDescription>
           </ProjectDetails>
         </ProjectCard>

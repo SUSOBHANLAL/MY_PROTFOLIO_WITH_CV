@@ -83,35 +83,53 @@ function Experience() {
 
       {/* Timeline */}
       <Timeline>
-        <div className="years">2021 - 2023</div>
+        <div className="years">2023 - 2025</div>
       </Timeline>
 
       {/* Job Listings */}
       <JobList>
         {/* Job 1 */}
         <JobItem>
-          <div className="company">Arrowai Industries</div>
-          <div className="position">Head Content Creator | 2022 - 2023</div>
+          <div className="company">
+            Indian Institute of Technology Bombay, Mumbai, IN
+          </div>
+          <div className="position">
+            Sr. Project Technical Assistant | 2023 - 2023
+          </div>
           <div className="description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit
-            amet massa sed leo molestie ultrices in non mi. Suspendisse mollis
-            nisl ac aliquet pretium.
+            Spearheaded full-stack development of Tutem User and Tutem Driver
+            apps deployed on Google Play Store. Built a web-based survey app
+            using HTML/CSS/JavaScript with offline support and conditional
+            questions. Engineered Safe Path Recommendation System using Python
+            Flask and k-shortest path algorithm. Developed real-time
+            ride-sharing backend using Node.js + Express with JWT authentication
+            and WebSocket tracking. Implemented carpooling feature using OSM
+            path optimization to minimize detours. Enabled dynamic configuration
+            management via backend. Hosted full application on AWS (EC2, RDS,
+            S3, ELB) with Auto Scaling. Ensured system security through HTTPS
+            and low-latency API design.
           </div>
         </JobItem>
 
         {/* Job 2 */}
         <JobItem>
-          <div className="company">Borcelle</div>
-          <div className="position">Junior Content Creator | 2021 - 2022</div>
+          <div className="company">
+            Buoyantworx Solutions Private Limited, Bangalore, IN
+          </div>
+          <div className="position">Software Engineer | 2023 - present</div>
           <div className="description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit
-            amet massa sed leo molestie ultrices in non mi. Suspendisse mollis
-            nisl ac aliquet pretium.
+            Developed Electrical Management System (EMS) using Jmix, Java, and
+            Spring Boot. Designed backend architecture using MS SQL Server to
+            manage complex data. Engineered bulk Excel import using VBA
+            scripting. Built report generation modules reducing manual effort by
+            ~60%. Led Aadhaar-PAN linking system using OCR (Tesseract). Designed
+            validation logic including checksums and regex checks. Delivered
+            user-friendly interface for non-technical users.
           </div>
         </JobItem>
 
         {/* Job 3 */}
-        <JobItem>
+        {/* <JobItem>
           <div className="company">Borcelle</div>
           <div className="position">Junior Content Creator | 2020 - 2021</div>
           <div className="description">
@@ -119,7 +137,7 @@ function Experience() {
             amet massa sed leo molestie ultrices in non mi. Suspendisse mollis
             nisl ac aliquet pretium.
           </div>
-        </JobItem>
+        </JobItem> */}
       </JobList>
 
       {/* Horizontal Line */}

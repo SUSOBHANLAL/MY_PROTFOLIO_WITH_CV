@@ -74,18 +74,16 @@ function Education() {
       <Timeline>
         <div className="years">2012 - 2019</div>
         <div className="details">
-          <Institution>Senior Vocational High School</Institution>
-          <Degree>School Of Art | 2012</Degree>
+          <Institution>Chaipat High School</Institution>
+          <Degree>Science | 2019</Degree>
           <br />
           <Institution>Bachelor Degree</Institution>
-          <Degree>
-            Borcelle Art University | Graphic Design Bachelor | 2017
-          </Degree>
+          <Degree>VTU | BE | 2023</Degree>
           <br />
-          <Institution>Master Degree</Institution>
+          {/* <Institution>Master Degree</Institution>
           <Degree>
             Borcelle Art University | Master of Communication | 2019
-          </Degree>
+          </Degree> */}
         </div>
       </Timeline>
 
